@@ -18,6 +18,7 @@ class Card {
     getDescription() {
         return this.description;
     }
+
 }
 
 //START Treasure Classes (Item) TODO: Update constructors with correct parameters/arguments
@@ -45,7 +46,7 @@ class Gear extends Treasure {
     private gearSlot = null;
     constructor(name, isPlayable, description, goldValue = 0, descriptors = [treasureDescriptors.None],
                 gearStat = 0, gearSlot = [gearSlots.None]) {
-        super(name, isPlayable, description, goldValue = 0);
+        super(name, isPlayable, description, goldValue, descriptors);
         this.gearStat = gearStat;
         this.gearSlot = gearSlot;
     }
@@ -68,7 +69,7 @@ const treasureDescriptors = {
 class OneShot extends Treasure {
     private effect = null; //CardEffect
     constructor(name, isPlayable, description, goldValue = 0, descriptors = [treasureDescriptors.None], effect) {
-        super(name, isPlayable, description, goldValue = 0, descriptors);
+        super(name, isPlayable, description, goldValue, descriptors);
         this.effect = effect;
     }
 }
