@@ -25,8 +25,8 @@ class Treasure extends Card{
     private goldValue = 0;
     private descriptors = null;
     private carried = false;
-    constructor (name, effect, description, goldValue = 0, descriptors = [treasureDescriptors.None]) {
-        super(name, effect, description);
+    constructor (name, isPlayable, description, goldValue = 0, descriptors = [treasureDescriptors.None]) {
+        super(name, isPlayable, description);
         this.goldValue = goldValue;
         this.descriptors = descriptors;
     }
@@ -43,9 +43,11 @@ class Treasure extends Card{
 class Gear extends Treasure {
     private gearStat = 0;
     private gearSlot = null;
-    constructor(name, effect, description, goldValue = 0, gearStat = 0, gearSlot = [gearSlots.None]) {
-        super(name, effect, description, goldValue = 0);
+    constructor(name, isPlayable, description, goldValue = 0, descriptors = [treasureDescriptors.None],
+                gearStat = 0, gearSlot = [gearSlots.None]) {
+        super(name, isPlayable, description, goldValue = 0);
         this.gearStat = gearStat;
+        this.gearSlot = gearSlot;
     }
 }
 
@@ -64,32 +66,37 @@ const treasureDescriptors = {
 }
 
 class OneShot extends Treasure {
-    private effectValue = 0;
-    private effect = OneShotEffect.None;
-    constructor() {
-        super();
+    private effect = null; //CardEffect
+    constructor(name, isPlayable, description, goldValue = 0, descriptors = [treasureDescriptors.None], effect) {
+        super(name, isPlayable, description, goldValue = 0, descriptors);
+        this.effect = effect;
     }
-}
-
-const OneShotEffect = {
-    None : null,
-    AddLevel : "addLevel", //Effect Value of the OneShot class will be x < 0 for losing values
-    DrawTreasure : "drawTreasure",
-    DrawDoor : "drawDoor",
-    LoseGear : "loseGear"
 }
 
 //START Door Classes
 class Door extends Card {
-    constructor(name, effect, description) {
-        super(name, effect, description);
+    constructor(name, isPlayable, description) {
+        super(name, isPlayable, description);
     }
 }
 
 class Monster extends Door {
     private level = 0;
-    constructor() {
-        super();
+    private badStuff = null; //CardEffect
+    private rewardCount = 0;
+    constructor(name, isPlayable, description, level = 1, badStuff, rewardCount = 1) {
+        super(name, isPlayable, description);
+        this.level = level;
+        this.badStuff = badStuff;
+        this.rewardCount = rewardCount;
+    }
+}
+
+class Curse extends Door {
+    private effect = null; //CardEffect
+    constructor(name, isPlayable, description, effect) {
+        super(name, isPlayable, description);
+        this.effect = effect;
     }
 }
 
