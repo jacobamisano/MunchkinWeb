@@ -1,6 +1,6 @@
 class CardEffect {
     //Effects are ordered in a queue format (FIFO) for multi-layered effects
-    private effectValue;
+    private effectValue:number;
     private effectType;
     private requireLast;
     private player;
