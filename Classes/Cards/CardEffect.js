@@ -1,18 +1,18 @@
 class CardEffect {
     //Effects are ordered in a queue format (FIFO) for multi-layered effects
-    private effectValue:number;
-    private effectType;
-    private requireLast;
-    private player;
+    #effectValue;
+    #effectType;
+    #requireLast;
+    #player;
 
-    constructor(effectValue:number, effectType:EffectType, requireLast = false, player:Player) {
+    constructor(effectValue, effectType, requireLast = false, player) {
         this.effectValue = effectValue;
         this.effectType = effectType;
         this.requireLast = requireLast;
         this.player = player;
     }
 
-    triggerEffect() : Boolean{
+    triggerEffect() {
         switch (this.effectType) {
             case EffectType.AddLevel: {
                 this.player.addLevel(this.effectValue);
