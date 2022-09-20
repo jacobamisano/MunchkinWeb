@@ -1,5 +1,4 @@
 class Card {
-  //Note: # = private declaration of class variables
   #name = "";
   #isPlayable = false;
   #description = "";

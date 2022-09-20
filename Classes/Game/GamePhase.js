@@ -1,0 +1,3 @@
+const GamePhase = {
+  TurnStart: 'TurnStart',
+}
