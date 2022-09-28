@@ -1,15 +1,14 @@
 class Player {
-    private level = 1;
-    private goldCount = 0;
-    private name:string;
-    private gear = [];
-    private alive = true;
-
-    constructor(name:string) {
+    constructor(name = 'Default Name') {
         this.name = name;
+        this.#level = 1;
+        this.#goldCount = 0;
+        this.#name = '';
+        this.#headgear
+        this.#alive = true;
     }
 
-    addLevel(value:number){
+    addLevel(value){
         this.level += value;
     }
 
@@ -17,7 +16,7 @@ class Player {
 
     }
 
-    addGold(amount:number) {
+    addGold(amount = 0) {
         this.goldCount += amount;
         if (this.goldCount >= 1000 && (this.level > 0 && this.level < 9)) {
             this.level += 1;
@@ -26,11 +25,11 @@ class Player {
         //TODO: At the end of the turn reset the gold to zero. You are unable to stash gold towards a level
     }
 
-    setLevel(level:number) {
+    setLevel(level = 1) {
         this.level = level;
     }
 
-    isAlive(status:boolean = null){
+    isAlive(status = null){
         if (status == null){
             return this.alive;
         } else {
