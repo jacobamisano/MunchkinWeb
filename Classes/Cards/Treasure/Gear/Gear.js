@@ -3,7 +3,7 @@ class Gear extends Treasure {
               gearStat = 0, gearSlot = [GearSlots.None]) {
       super(name, isPlayable, description, goldValue, descriptors);
       this.gearStat = gearStat;
-      this.gearType = null;
+      this.gearType = undefined;
   }
 }
 
