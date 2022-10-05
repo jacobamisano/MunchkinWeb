@@ -7,7 +7,7 @@ class Gear extends Treasure {
   }
 }
 
-const GearType = {
+export const GearType = {
   footwear: 'footwear',
   onehand: 'onehand',
   twohand: 'twohand',

@@ -1,4 +1,4 @@
 const treasureDescriptors = {
-  None : null,
+  None : undefined,
   BigItem : "bigItem"
 }

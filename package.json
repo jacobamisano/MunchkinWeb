@@ -17,7 +17,7 @@
     "url": "https://github.com/jacobamisano/MunchkinWeb/issues"
   },
   "homepage": "https://github.com/jacobamisano/MunchkinWeb#readme",
-  "dependencies": {
+  "devDependencies": {
     "clownup": "github:jacobamisano/ClownUp"
   }
 }

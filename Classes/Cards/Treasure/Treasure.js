@@ -1,12 +1,11 @@
-import card from Card.js
-class Treasure extends Card{
+import { Card } from '../Card.js'
+export class Treasure extends Card{
   #goldValue = 0;
   #descriptors = null;
   #carried = false;
-  constructor (name, isPlayable, description, goldValue = 0, descriptors = [treasureDescriptors.None]) {
+  constructor (name, isPlayable, description, goldValue = 0) {
       super(name, isPlayable, description);
       this.goldValue = goldValue;
-      this.descriptors = descriptors;
   }
   getGoldValue() {
       return this.goldValue;
